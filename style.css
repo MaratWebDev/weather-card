@@ -1,0 +1,180 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background: lightgray;
+  font-family: "Helvetica", "Verdana", sans-serif;
+  /* font-weight: 400; */
+  color: #878787;
+  display: grid;
+  grid-gap: 10px;
+}
+
+header {
+  text-align: center;
+  width: 240px;
+  margin: 45px auto 50px auto;
+}
+
+.search,
+.submit {
+  border: none;
+  color: #455561;
+  font-size: 1em;
+}
+.search {
+  width: 170px;
+  padding: 10px 15px;
+  float: left;
+  background: #fff;
+  border-radius: 12px 0 0 12px;
+  
+
+  /*  font: 400 "Arial", "Tahoma"; */
+}
+.submit {
+  width: 70px;
+  float: right;
+  padding: 0;
+  border-radius: 0 12px 12px 0;
+  background: #ebebeb;
+  height: 39px;
+  /*  font: bold 1.5em "Arial", "Tahoma"; */
+}
+
+/* Styling weather card */
+
+section {
+  /* general styling */
+  width: 90%;
+  margin: 0 auto;
+  padding: 16px;
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  justify-content: center;
+  align-items: center;
+
+  /* creating matching color animation for weather card */
+  border-top: 10px solid;
+  border-top-color: #fff;
+  -webkit-animation: random-border-color 15s infinite;
+  animation: random-border-color 15s infinite;
+
+  /* Layout for weather card */
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+    "header"
+    "temp"
+    "humidity"
+    "wind"
+    "maxtemp"
+    "mintemp"
+}
+
+h2 {
+  /* font-size: 1.75em; */
+  grid-area: header;
+  text-align: center;
+}
+h3 {
+  grid-area: temp;
+  color: #424242;
+  font-size: 2em;
+  text-align: center;
+  border-radius: 12px;
+  padding: 10px;
+
+  /* creating matching color animation for weather card */
+  background-color: #fff;
+  -webkit-animation: random-background 15s infinite;
+  animation: random-background 15s infinite;
+}
+
+.humidity {
+  grid-area: humidity;
+}
+.wind {
+  grid-area: wind;
+}
+.maxtemp {
+  grid-area: maxtemp;
+}
+.mintemp {
+  grid-area: mintemp;
+}
+
+@media only screen and (min-width: 600px) {
+  section {
+    width: 60%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "header header"
+      "temp humidity"
+      "temp wind"
+      "temp maxtemp"
+      "temp mintemp";
+  }
+}
+@media only screen and (min-width: 800px) {
+  section {
+    width: 60%;
+    max-width: 750px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "header header header"
+      "temp . humidity"
+      "temp . wind"
+      "temp . maxtemp"
+      "temp . mintemp";
+  }
+}
+
+
+/* Setting @keyframes with accessible  color palette separetly for background and border-top*/
+@keyframes random-border-color {
+  15% {
+    /* fail */
+    border-top-color: #f2cee6;
+  }
+  30% {
+    /* fail */
+    border-top-color:#ede580;
+  }
+  45% {
+    /* fail */
+    border-top-color: #81f4e1;
+  }
+  60% {
+    /* fail */
+    border-top-color: #dbcfb0;
+  }
+  75% {
+    /* fail */
+    border-top-color: #56cbf9;
+  }
+}
+
+@keyframes random-background {
+  15% {
+    background-color: #f2cee6;
+  }
+  30% {
+    background-color: #ede580;
+  }
+  45% {
+    background-color: #81f4e1;
+  }
+  60% {
+    background-color: #dbcfb0;
+  }
+  75% {
+    background-color: #56cbf9;
+  }
+}
+
+
